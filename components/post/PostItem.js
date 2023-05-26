@@ -2,23 +2,30 @@
 import React, { useState, useCallback, useMemo } from 'react'
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-
+import { toast } from 'react-hot-toast';
 import { format } from 'date-fns';
 import vi from 'date-fns/locale/vi'
 import {AiOutlineMessage} from 'react-icons/ai'
 import { signIn } from 'next-auth/react';
 
 import useCurrentUser from '@/hooks/useCurrentUser';
-import useLike from '@/hooks/useLike';
 import Avatar from '../Avatar';
 import { Tag, tags, findTagIndexByValue } from '../Tag';
+
+import usePost from '@/hooks/usePost';
+import usePosts from '@/hooks/usePosts';
 
 const PostItem = ({ data, userId }) => {
 
     const [isTruncated, setIsTruncated] = useState(true)
     const router = useRouter();
     const { data: currentUser } = useCurrentUser();
-    const {hasLiked,toggleLike} = useLike({postId:data.id,userId:userId})
+
+    console.log(data.id)
+    const { mutate: mutateFetchedPost } = usePost(data.id);
+    const { mutate: mutateFetchedPosts } = usePosts(userId);
+
+
 
 
     const contentLength = useMemo(() => data.content.reduce((a, b) => {
@@ -47,6 +54,50 @@ const PostItem = ({ data, userId }) => {
         router.push(`/posts/${data.id}`);
     }, [router, data.id]);
 
+     
+
+
+    const createdAt = useMemo(() => {
+        if (!data?.createdAt) {
+            return null;
+        }
+        return format(new Date(data.createdAt), 'kk:mm a d/MM/y', { locale: vi })
+    }, [data.createdAt])
+
+   
+
+    const hasLiked = useMemo(() => {
+        const list = data.likedIds || [];
+    
+        return list.includes(currentUser?.id);
+      }, [data.likedIds,currentUser]);
+
+
+
+    const toggleLike = useCallback(async () => {
+        if (!currentUser) {
+          signIn()
+        }
+    
+        try {
+          let request;
+    
+          if (hasLiked) {
+            request = () => fetch('/api/like',{method:"PUT",body:JSON.stringify({postId:data.id})});
+        } else {
+            request = () => fetch('/api/like',{method:"POST",body:JSON.stringify({postId:data.id})});
+        }
+    
+          await request();
+          mutateFetchedPost();
+          mutateFetchedPosts();
+    
+          toast.success('Success');
+        } catch (error) {
+          toast.error('Something went wrong');
+        }
+      }, [currentUser, hasLiked, mutateFetchedPost,mutateFetchedPosts]);
+
       const onLike = useCallback(async (e) => {
         e.stopPropagation();
 
@@ -57,17 +108,7 @@ const PostItem = ({ data, userId }) => {
         toggleLike();
       }, [currentUser, toggleLike]);
 
-
-    const createdAt = useMemo(() => {
-        if (!data?.createdAt) {
-            return null;
-        }
-
-        // return formatDistanceToNowStrict(new Date(data.createdAt),{locale:vi});
-        return format(new Date(data.createdAt), 'kk:mm a d/MM/y', { locale: vi })
-    }, [data.createdAt])
-
-    const hugBtnImageUrl = hasLiked ? '/assets/icons/unhug.svg' :  '/assets/icons/hug.svg'
+      const hugBtnImageUrl = hasLiked ? '/assets/icons/unhug.svg' :  '/assets/icons/hug.svg'
     return (
         <div className=' flex flex-col items-start p-[10px] gap-[15px] bg-[#FFF] rounded-[10px]'>
             <div className="flex items-center gap-[9px]">

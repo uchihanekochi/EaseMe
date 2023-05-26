@@ -2,7 +2,9 @@
 import useSWR from 'swr'
 import fetcher from '@/libs/fetcher'
 const usePost =(postId)=> {
+ 
   const url = postId ? `/api/posts/${postId}`:null
+  console.log(url)
   const { data, error, mutate,isLoading} = useSWR(url, fetcher)
  
   return {
