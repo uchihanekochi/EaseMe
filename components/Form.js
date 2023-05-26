@@ -2,7 +2,6 @@
 import React, { useState, useCallback } from 'react'
 import { toast } from 'react-hot-toast';
 import Select, { components } from "react-select";
-import { useRouter } from 'next/navigation'
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
 
@@ -63,11 +62,10 @@ const tagColorStyles = {
 
 
 const Form = ({ placeholder, isComment, postId }) => {
-  const router = useRouter()
   const { data: currentUser } = useCurrentUser();
   const { mutate: mutatePosts } = usePosts();
-  const { mutate: mutatePost } = usePost();
-
+  const { mutate: mutatePost } = usePost(postId);
+  console.log(isComment)
   const [post, setPost] = useState({ content: "", tag: "", privacyOption: '' });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -178,7 +176,7 @@ const Form = ({ placeholder, isComment, postId }) => {
           </div>
 
           <div className="flex flex-row justify-end items-center">
-            {isComment ? (<Button disabled={isLoading || post.content === ""} onClick={onSubmit} small grey label="Đăng bài" />) : (<Button disabled={isLoading || post.content === "" || post.tag === "" || privacyOptions == ""} onClick={onSubmit} small grey label="Đăng bài" />)}
+            {isComment ? (<Button disabled={isLoading || post.content === ""} onClick={onSubmit} small grey label={'Phản hồi'} />) : (<Button disabled={isLoading || post.content === "" || post.tag === "" || privacyOptions == ""} onClick={onSubmit} small grey label="Đăng bài" />)}
 
           </div>
 
@@ -186,8 +184,7 @@ const Form = ({ placeholder, isComment, postId }) => {
         <div className="py-8 self-center">
           <h1 className="text-green-01 text-2xl text-center mb-4 font-bold">Chào mừng đến với EaseMe</h1>
           <div className="flex flex-row items-center justify-center gap-4">
-
-            <Button label="đăng nhập" green sm onClick={() => signIn()} />
+            <Button label={'đăng nhập'} green sm onClick={() => signIn()} />
           </div>
         </div>
       </>}

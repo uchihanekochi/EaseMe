@@ -29,7 +29,6 @@ const EditModal = () => {
         setUsername(currentUser?.username)
         setBio(currentUser?.bio)
       }, [currentUser?.name, currentUser?.username, currentUser?.bio, currentUser?.profileImage, currentUser?.coverImage]);
-      console.log(name,username,bio)
       const [isLoading, setIsLoading] = useState(false);
 
       const onSubmit = useCallback(async () => {

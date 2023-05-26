@@ -35,6 +35,7 @@ export const POST = async (request) => {
         return new Response(JSON.stringify(updatedPost), { status: 201 })
     } catch (error) {
         console.log(error)
+
         return new Response("Failed to updated", { status: 500 });
     }
 }

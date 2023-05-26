@@ -6,7 +6,7 @@ export const PUT = async (req,res)=>{
         const currentUser = await getCurrentUser()
     
         const { name, username, bio, profileImage, coverImage } = await req.json();  
-        console.log(name,username,bio)
+
 
     
         const updatedUser = await prisma.user.update({

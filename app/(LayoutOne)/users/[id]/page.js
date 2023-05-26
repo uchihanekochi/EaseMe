@@ -10,7 +10,6 @@ import Feed from '@/components/post/Feed';
 const UsersPage = ({params}) => {
     const userId = params.id
     const {data:fetchedUser,isLoading} = useUser(userId)
-    console.log(fetchedUser)
     if (isLoading || !fetchedUser) {
         return (
           <div className="flex justify-center items-center h-full">

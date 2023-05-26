@@ -4,7 +4,6 @@ const prisma = new PrismaClient()
 
 export const GET = async(req,{params})=>{
     const postId = params.id
-    console.log(postId)
 
     try {
         if (!postId || typeof postId !== 'string') {

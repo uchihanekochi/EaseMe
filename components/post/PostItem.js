@@ -20,10 +20,9 @@ const PostItem = ({ data, userId }) => {
     const [isTruncated, setIsTruncated] = useState(true)
     const router = useRouter();
     const { data: currentUser } = useCurrentUser();
-
-    console.log(data.id)
     const { mutate: mutateFetchedPost } = usePost(data.id);
     const { mutate: mutateFetchedPosts } = usePosts(userId);
+   
 
 
 
@@ -90,7 +89,9 @@ const PostItem = ({ data, userId }) => {
     
           await request();
           mutateFetchedPost();
-          mutateFetchedPosts();
+            mutateFetchedPosts();
+          
+        
     
           toast.success('Success');
         } catch (error) {

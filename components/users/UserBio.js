@@ -13,7 +13,7 @@ const UserBio = ({ userId }) => {
   const { data: fetchedUser } = useUser(userId)
 
   const editModal = useEditModal()
-  console.log(editModal.isOpen)
+ 
 
   const createdAt = useMemo(() => {
     if (!fetchedUser?.createdAt) {

@@ -6,7 +6,7 @@ import PostItem from "./PostItem";
 
 const Feed = ({ userId }) => {
   const { data: posts = [] } = usePosts(userId);
-  console.log(userId)
+ 
   return (
     <div className="flex flex-col gap-[10px]"> 
     

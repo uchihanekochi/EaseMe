@@ -5,7 +5,7 @@ export const POST = async (req,res)=>{
     const currentUser = await getCurrentUser()
     const {content} = await req.json()
     const postId =  await req.nextUrl.searchParams.get(`postId`)
-    console.log(postId + "abc123")
+    
 
     if (!postId || typeof postId !== 'string') {
         throw new Error('Invalid ID');
