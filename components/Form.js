@@ -107,7 +107,7 @@ const Form = ({ placeholder, isComment, postId }) => {
     } finally {
       setIsLoading(false);
     }
-  }, [post, mutatePosts, isComment, postId]);
+  }, [post, mutatePosts, isComment, postId,mutatePost]);
   return (
     <div className=' flex flex-col  px-5 py-2 bg-[#FFF] rounded-[10px] items-start gap-[10px]'>
       {currentUser ? <>  <div className="flex items-start w-full mb-[20px] gap-4 border-b-[1px]  ">

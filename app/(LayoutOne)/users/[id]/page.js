@@ -1,13 +1,13 @@
 'use client'
 import React from 'react'
-import useUser from '@/hooks/userUser'
+import useUser from '@/hooks/userUser';
 import { ClipLoader } from "react-spinners";
 
 import UserHero from '@/components/users/UserHero';
 import UserBio from '@/components/users/UserBio';
 import EditModal from '@/components/modals/EditModal';
 import Feed from '@/components/post/Feed';
-const page = ({params}) => {
+const UsersPage = ({params}) => {
     const userId = params.id
     const {data:fetchedUser,isLoading} = useUser(userId)
     console.log(fetchedUser)
@@ -30,4 +30,4 @@ const page = ({params}) => {
   )
 }
 
-export default page
+export default UsersPage

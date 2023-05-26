@@ -41,7 +41,7 @@ const PostItem = ({ data, userId }) => {
             return
         }
 
-    }, [router, data.user.id]);
+    }, [router, data.user.id,currentUser]);
 
     const goToPost = useCallback(() => {
         router.push(`/posts/${data.id}`);

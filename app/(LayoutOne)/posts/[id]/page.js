@@ -4,7 +4,8 @@ import usePost from '@/hooks/usePost';
 import { ClipLoader } from "react-spinners";
 import PostItem from '@/components/post/PostItem';
 import Form from '@/components/Form';
-const page = ({params}) => {
+
+const PostsPage = ({params}) => {
 const postId = params.id
 
 const { data: fetchedPost, isLoading } = usePost(postId);
@@ -25,4 +26,4 @@ if (isLoading || !fetchedPost) {
   )
 }
 
-export default page
+export default PostsPage

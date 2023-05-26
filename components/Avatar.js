@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import { useRouter} from "next/navigation";
 import { useCallback } from "react";
@@ -22,7 +23,7 @@ const Avatar = ({ userId, isLarge, hasBorder,isProfile,isSmall}) => {
       router.push(url);
     }else return
 
-  }, [router, userId]);
+  }, [router, userId,currentUser]);
 
   return (
     <div
