@@ -84,7 +84,7 @@ const Book = ({ pageContentArr = [], nameOfUser = "Phạm Minh Khôi" }) => {
                 <div className="content__body">
                   <p>
                     <span style={{ fontSize: "5rem" }}>
-                      {pageContentArr[i].content[0][0]}
+                      {pageContentArr[i].content[0][0][0]}
                     </span>
                     {pageContentArr[i].content[0].substring(
                       1,
