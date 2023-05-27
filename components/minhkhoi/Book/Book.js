@@ -86,10 +86,10 @@ const Book = ({ pageContentArr = [], nameOfUser = "Phạm Minh Khôi" }) => {
                     <span style={{ fontSize: "5rem" }}>
                       {pageContentArr[i].content[0][0]}
                     </span>
-                      {pageContentArr[i].content[0].substring(
-                        1,
-                        pageContentArr[i].content[0].length
-                      )}
+                    {pageContentArr[i].content[0].substring(
+                      1,
+                      pageContentArr[i].content[0].length
+                    )}
                   </p>
                 </div>
                 <div className="content__footer">
@@ -111,7 +111,7 @@ const Book = ({ pageContentArr = [], nameOfUser = "Phạm Minh Khôi" }) => {
                   </p>
                 </div>
                 <div className="content__footer">
-                  <p>{pageContentArr[i + 1]?.date}</p>
+                  <p>{isEnd && "good things take time!"}</p>
                 </div>
               </div>
             </div>
