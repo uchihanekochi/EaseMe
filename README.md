@@ -2,9 +2,13 @@ Hướng dẫn sử dụng
 #Bước 1: Clone app về
 
 #Bước 2: chạy lệnh npm i ở terminal
+
 #bước 3: tạo một file env, copy paste 4 biến ở dưới vào
+
 #Bước 4: Chạy lệnh npx prisma db push
+
 #Bước 5: Chạy npm run dev
+
 #Bước 6: truy cập localhost:3000 trên browser
 
 
