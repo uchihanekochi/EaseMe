@@ -1,30 +1,24 @@
+@font-face {
+  font-family: "iCiel Supa Mega Fantastic";
+  src: url(./fonts/iCiel-Supa-Mega-Fantastic/iCielSupaMegaFantastic-Regular.otf);
+  font-weight: normal;
+}
 
 @font-face {
-    font-family: "iCiel Supa Mega Fantastic";
-    src: url(./fonts/iCiel-Supa-Mega-Fantastic/iCielSupaMegaFantastic-Regular.otf);
-    font-weight: normal;
-  }
-  
-  @font-face {
-    font-family: "iCiel Supa Mega Fantastic";
-    src: url(./fonts/iCiel-Supa-Mega-Fantastic/iCielSupaMegaFantastic-Thin.otf);
-    font-weight: lighter;
-  }
+  font-family: "iCiel Supa Mega Fantastic";
+  src: url(./fonts/iCiel-Supa-Mega-Fantastic/iCielSupaMegaFantastic-Thin.otf);
+  font-weight: lighter;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-  
-
-
 :root {
-    --color-green-label: #87a173;
-    --color-pink-text: #ff8080;
-  }
+  --color-green-label: #87a173;
+  --color-pink-text: #ff8080;
+}
 
-  
 @keyframes fadeSlideUp {
   0% {
     opacity: 0;

@@ -65,7 +65,6 @@ const Form = ({ placeholder, isComment, postId }) => {
   const { data: currentUser , isLoading:isUserLoading } = useCurrentUser();
   const { mutate: mutatePosts } = usePosts();
   const { mutate: mutatePost } = usePost(postId);
-  console.log(isComment)
   const [post, setPost] = useState({ content: "", tag: "", privacyOption: '' });
   const [isLoading, setIsLoading] = useState(false);
 

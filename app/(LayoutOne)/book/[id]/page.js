@@ -5,6 +5,11 @@ import usePosts from '@/hooks/usePosts'
 import useCurrentUser from '@/hooks/useCurrentUser'
 import { ClipLoader } from "react-spinners";
 
+export const metadata = {
+  title: "Hành trình của bạn",
+  description: "Trang hành trình",
+};
+
 const BookPage = ({ params }) => {
   const userId = params.id
   const { data: fetchedPosts, isLoading } = usePosts()

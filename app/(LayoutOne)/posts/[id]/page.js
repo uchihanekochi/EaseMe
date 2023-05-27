@@ -6,10 +6,19 @@ import PostItem from '@/components/post/PostItem';
 import Form from '@/components/Form';
 import CommentFeed from '@/components/post/CommentFeed';
 
+export const metadata = {
+  title: "Bài viết",
+  description: "Trang bài viết",
+};
+
 const PostsPage = ({params}) => {
 const postId = params.id
 
+
+
 const { data: fetchedPost, isLoading } = usePost(postId);
+
+
 
 if (isLoading || !fetchedPost) {
     return (
