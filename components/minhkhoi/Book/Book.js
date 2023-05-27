@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from "react";
 import { format } from "date-fns";
 import vi from "date-fns/locale/vi";
 
-const Book = ({ pageContentArr = [], nameOfUser = "Phạm Minh Khôi" }) => {
+const Book = ({ pageContentArr = [], nameOfUser }) => {
   const numOfPage = pageContentArr.length + 2; // number of pages except the first cover and the last one
   console.log(numOfPage);
 
