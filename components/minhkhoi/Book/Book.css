@@ -119,6 +119,11 @@
   transform: rotateY(180deg);
 }
 
+.book__paper-back .content .content__body {
+  font-size: 36px;
+  padding-top: 45px;
+}
+
 .flipped .book__paper-back,
 .flipped .book-cover__left-back {
   box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
