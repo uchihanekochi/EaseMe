@@ -86,12 +86,10 @@ const Book = ({ pageContentArr = [], nameOfUser = "Phạm Minh Khôi" }) => {
                     <span style={{ fontSize: "5rem" }}>
                       {pageContentArr[i].content[0][0]}
                     </span>
-                    <span>
                       {pageContentArr[i].content[0].substring(
                         1,
                         pageContentArr[i].content[0].length
                       )}
-                    </span>
                   </p>
                 </div>
                 <div className="content__footer">
