@@ -1,3 +1,31 @@
+@font-face {
+  font-family: "iCiel Supa Mega Fantastic";
+  src: url(/minhkhoi/assets/fonts/iCiel-Supa-Mega-Fantastic/iCielSupaMegaFantastic-Regular.otf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "iCiel Supa Mega Fantastic";
+  src: url(/minhkhoi/assets/fonts/iCiel-Supa-Mega-Fantastic/iCielSupaMegaFantastic-Thin.otf);
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Fz Beloved Script";
+  src: url(/mminhkhoi/assets/fonts/Fz-Beloved-Script/Fz\ Beloved\ Script.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Fz-Billie-Endria";
+  src: url(/minhkhoi/assets/fonts/Fz-Billie-Endria/Fz-Billie-Endria.ttf);
+  font-weight: normal;
+}
+
+
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

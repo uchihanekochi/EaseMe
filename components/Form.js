@@ -11,7 +11,7 @@ import useCurrentUser from '@/hooks/useCurrentUser';
 import { tags } from './Tag';
 import Avatar from './Avatar';
 import Button from './Button';
-
+import { ClipLoader } from "react-spinners";
 
 const privacyOptions = [
   { value: "public", label: "Công khai" },
@@ -62,7 +62,7 @@ const tagColorStyles = {
 
 
 const Form = ({ placeholder, isComment, postId }) => {
-  const { data: currentUser } = useCurrentUser();
+  const { data: currentUser , isLoading:isUserLoading } = useCurrentUser();
   const { mutate: mutatePosts } = usePosts();
   const { mutate: mutatePost } = usePost(postId);
   console.log(isComment)
@@ -106,6 +106,17 @@ const Form = ({ placeholder, isComment, postId }) => {
       setIsLoading(false);
     }
   }, [post, mutatePosts, isComment, postId,mutatePost]);
+
+
+  if (isUserLoading) {
+    return (
+      <div className="flex justify-center items-center h-full  ">
+        <ClipLoader color="lightpink" size={80} />
+      </div>
+    )
+  }
+
+
   return (
     <div className=' flex flex-col  px-5 py-2 bg-[#FFF] rounded-[10px] items-start gap-[10px]'>
       {currentUser ? <>  <div className="flex items-start w-full mb-[20px] gap-4 border-b-[1px]  ">
@@ -181,10 +192,10 @@ const Form = ({ placeholder, isComment, postId }) => {
           </div>
 
         </div></> : <>
-        <div className="py-8 self-center">
+        <div className="py-8 self-center ">
           <h1 className="text-green-01 text-2xl text-center mb-4 font-bold">Chào mừng đến với EaseMe</h1>
           <div className="flex flex-row items-center justify-center gap-4">
-            <Button label={'đăng nhập'} green sm onClick={() => signIn()} />
+            <Button label={'Đăng nhập'} green sm onClick={() => signIn()} />
           </div>
         </div>
       </>}

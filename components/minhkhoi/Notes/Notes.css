@@ -1,6 +1,9 @@
+
 .note__wrapper {
   width: fit-content;
   position: relative;
+
+  
 }
 
 .note__background img {
@@ -24,6 +27,7 @@
   text-decoration: none;
   text-overflow: ellipsis;
   text-align: center;
+  font-size: 62.5%;
 }
 
 .note__wrapper--1 .note__text {

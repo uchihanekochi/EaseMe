@@ -6,6 +6,9 @@ import { toast } from 'react-hot-toast';
 import { format } from 'date-fns';
 import vi from 'date-fns/locale/vi'
 import {AiOutlineMessage} from 'react-icons/ai'
+import {RiGitRepositoryPrivateFill} from 'react-icons/ri'
+import {MdPublic} from 'react-icons/md'
+import {GiHealthNormal} from 'react-icons/gi'
 import { signIn } from 'next-auth/react';
 
 import useCurrentUser from '@/hooks/useCurrentUser';
@@ -22,7 +25,14 @@ const PostItem = ({ data, userId }) => {
     const { data: currentUser } = useCurrentUser();
     const { mutate: mutateFetchedPost } = usePost(data.id);
     const { mutate: mutateFetchedPosts } = usePosts(userId);
-   
+    let icon
+    if(data.privacyOption === 'public'){
+        icon = (<MdPublic size={20} color='#87A173'/>)
+    }else if(data.privacyOption === 'doctor'){
+        icon = (<GiHealthNormal size={20} color='#87A173'/>)
+    }else{
+        icon = (<RiGitRepositoryPrivateFill size={20} color='#87A173'/>)
+    }
 
 
 
@@ -60,7 +70,7 @@ const PostItem = ({ data, userId }) => {
         if (!data?.createdAt) {
             return null;
         }
-        return format(new Date(data.createdAt), 'kk:mm a d/MM/y', { locale: vi })
+        return format(new Date(data.createdAt), 'kk:mm d/MM/y', { locale: vi })
     }, [data.createdAt])
 
    
@@ -115,8 +125,8 @@ const PostItem = ({ data, userId }) => {
             <div className="flex items-center gap-[9px]">
                 <Avatar isLarge userId={data.user.id} />
                 <span className=" cursor-pointer flex h-full items-center font-semibold text-[20px] leading-[25px]" onClick={goToUser}>{currentUser?.id === data.user.id ? `${data.user.name}` : `Người dùng ẩn danh`}</span>
-                <span className=' font-normal text-[20px] leading-[25px]'>
-                    {data.privacyOption}
+                <span className=''>
+                    {icon}
                 </span>
             </div>
             <div className={` ${contentLength > 100 && isTruncated && `max-h-[150px] post-gradient`} min-h-[100px]  flex flex-col overflow-hidden w-full rounded-lg px-2  bg-[#FFF]  outline-0 `} >

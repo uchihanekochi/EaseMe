@@ -13,19 +13,22 @@ const { data: fetchedPost, isLoading } = usePost(postId);
 
 if (isLoading || !fetchedPost) {
     return (
-      <div className="flex justify-center items-center h-full">
+      <div className="flex justify-center items-center h-full  col-span-5 lg:col-span-3">
         <ClipLoader color="lightpink" size={80} />
       </div>
     )
   }
 
   return (
+    <div className=" col-span-5 lg:col-span-3">
    <div className='flex flex-col gap-[10px] mt-[10px]'>
    
       <PostItem data={fetchedPost} />
       <Form postId={postId} isComment  placeholder="Phản hồi" />
       <CommentFeed comments={fetchedPost?.comments} />
    </div>
+
+    </div>
   )
 }
 

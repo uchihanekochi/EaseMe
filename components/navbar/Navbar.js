@@ -1,13 +1,50 @@
 'use client'
 
-import React from 'react'
-import {signIn,signOut} from 'next-auth/react'
+import React, {useState, useCallback } from 'react'
+import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '../Logo'
-import Button from '../Button'
+
 import Avatar from '../Avatar'
-const Navbar = ({session}) => {
+import { useRouter } from 'next/navigation'
+const Navbar = ({ session }) => {
+    const router = useRouter()
+    const [toggle, setToggle] = useState(false)
+    const goToBook = useCallback(
+        () => {
+            if (session) {
+                return router.push(`/book/${session.id}`)
+            } else {
+                return
+            }
+        },
+        [session, router],
+    )
+
+    const goToUser = useCallback(
+        () => {
+            if (session) {
+                return router.push(`/users/${session.id}`)
+            } else {
+                return
+            }
+        },
+        [session, router],
+    )
+
+    const goToSurvey = useCallback(
+        () => {
+            if (session) {
+                return router.push(`/survey`)
+            } else {
+                return
+            }
+        },
+        [session, router],
+    )
+
+
     return (
         <div className='fixed top-0 w-full px-5 h-[82px] bg-white/60'>
             <div className="flex items-center justify-between h-full  mx-auto ">
@@ -20,21 +57,34 @@ const Navbar = ({session}) => {
                         </div>
                     </Link>
                 </div>
-                {session? <>
-                    <div className="flex items-center justify-center gap-[14px] ">
-                    <Image src={'/assets/icons/plus.svg'} height={36} width={36} alt='create-post' />
-                    <Image src={'/assets/icons/connect.svg'} height={36} width={128} alt='connect' />
-                    <Image src={'/assets/icons/book.svg'} height={36} width={30} alt='book' />
-                    <div className="flex items-center justify-center gap-1">
-                        <Avatar userId={session?.id} isLarge />
-                        <Image src={'/assets/icons/more.svg'} height={12} width={22} alt='more' onClick={()=>signOut()}  />
+                {session &&
+                    <div className="flex items-center justify-center gap-[14px] relative">
+                        <Image src={'/assets/icons/plus.svg'} height={36} width={36} alt='create-post' />
+                        <Image src={'/assets/icons/connect.svg'} height={36} width={128} alt='connect' />
+                        <Image src={'/assets/icons/book.svg'} height={36} width={30} alt='book' onClick={goToBook} />
+                        <div className="flex items-center justify-center gap-1 ">
+                            <Avatar userId={session?.id} isLarge />
+                            <Image src={'/assets/icons/more.svg'} height={12} width={22} alt='more' onClick={()=> setToggle(prev=>!prev) } />
+                        </div>
+                        {toggle && 
+                            <div className=" top-[120%]  right-0 absolute w-fit  bg-[#fff] rounded-[15px] px-2 py-4 shadow-01 "   onClick={()=> setToggle(prev=>!prev) }>
+                                <div className="flex flex-col gap-[10px] mt-[10px]">
+                                    <div className="w-full p-2 hover:bg-[#ccc] rounded-[10px]" onClick={goToUser}>
+                                        Trang cá nhân
+                                    </div>
+                                    <div className="w-full p-2 hover:bg-[#ccc] rounded-[10px]" onClick={goToSurvey}>
+                                        Làm khảo sát
+                                    </div>
+                                    <div className="w-full p-2 hover:bg-[#ccc] rounded-[10px]" onClick={()=> signOut()}>
+                                        Đăng xuất
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        }
                     </div>
-                </div>
-                </> : <>
-                <div className="flex items-end justify-center ">
-                    <Button label={'Đăng nhập'} onClick={()=>signIn()}  green />
-                </div>
-                </>}
+                }
             </div>
         </div>
     )
