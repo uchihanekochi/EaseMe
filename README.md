@@ -13,6 +13,7 @@ Hướng dẫn sử dụng
 #Bước 6: truy cập localhost:3000 trên browser
 
 
+------------------------------------------------------------------------------------------------
 
 DATABASE_URL='mongodb+srv://405foundd:1234@cluster0.ju3gk6l.mongodb.net/EaseMe'
 
