@@ -29,7 +29,7 @@ export default async function RootLayout({ children }) {
         <Provider>
           <Toaster />
           <Navbar session={session} />
-          <div className=" mt-[82px]">
+          <div className=" mt-[82px] pb-[40px]">
             <div className="h-full   w-full">
               <div className="grid grid-cols-5  w-full h-full">
                 <LeftBar />

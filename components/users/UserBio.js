@@ -28,7 +28,7 @@ const UserBio = ({ userId }) => {
       <div className="flex justify-end p-2">
         {currentUser?.id === userId &&
           (
-            <Button grey small label={"Chỉnh hờ sơ"} onClick={editModal.onOpen} />
+            <Button grey small label={"Chỉnh hồ sơ"} onClick={editModal.onOpen} />
           )
 
         }

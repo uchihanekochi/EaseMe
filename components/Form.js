@@ -186,7 +186,7 @@ const Form = ({ placeholder, isComment, postId }) => {
           </div>
 
           <div className="flex flex-row justify-end items-center">
-            {isComment ? (<Button disabled={isLoading || post.content === ""} onClick={onSubmit} small grey label={'Phản hồi'} />) : (<Button disabled={isLoading || post.content === "" || post.tag === "" || privacyOptions == ""} onClick={onSubmit} small grey label="Đăng bài" />)}
+            {isComment ? (<Button disabled={isLoading || post.content === ""} onClick={onSubmit} small grey label={'Phản hồi'} />) : (<Button disabled={isLoading || post.content === "" || post.tag === "" || post.privacyOptions == ""} onClick={onSubmit} small grey label="Đăng bài" />)}
 
           </div>
 

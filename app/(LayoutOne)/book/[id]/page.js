@@ -8,7 +8,7 @@ import { ClipLoader } from "react-spinners";
 
 const BookPage = ({ params }) => {
   const userId = params.id
-  const { data: fetchedPosts, isLoading } = usePosts()
+  const { data: fetchedPosts, isLoading } = usePosts(userId)
   const { data: fetchedUser, isLoading: isUserLoading } = useCurrentUser(userId)
   if (isLoading || (!fetchedPosts && isUserLoading)) {
     return (

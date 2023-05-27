@@ -92,19 +92,19 @@ const Navbar = ({ session }) => {
               >
                 <div className="flex flex-col gap-[10px] mt-[10px]">
                   <div
-                    className="w-full p-2 hover:bg-[#ccc] rounded-[10px]"
+                    className="w-full p-2 hover:bg-[#ccc] rounded-[10px] cursor-pointer"
                     onClick={goToUser}
                   >
                     Trang cá nhân
                   </div>
                   <div
-                    className="w-full p-2 hover:bg-[#ccc] rounded-[10px]"
+                    className="w-full p-2 hover:bg-[#ccc] rounded-[10px] cursor-pointer"
                     onClick={goToSurvey}
                   >
                     Làm khảo sát
                   </div>
                   <div
-                    className="w-full p-2 hover:bg-[#ccc] rounded-[10px]"
+                    className="w-full p-2 hover:bg-[#ccc] rounded-[10px] cursor-pointer"
                     onClick={() => signOut()}
                   >
                     Đăng xuất
