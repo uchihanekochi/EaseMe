@@ -8,10 +8,7 @@ import UserBio from '@/components/users/UserBio';
 import EditModal from '@/components/modals/EditModal';
 import Feed from '@/components/post/Feed';
 
-export const metadata = {
-  title: "Trang cá nhân",
-  description: "Trang cá nhân",
-};
+
 
 const UsersPage = ({params}) => {
     const userId = params.id

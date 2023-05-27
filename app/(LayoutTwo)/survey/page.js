@@ -4,10 +4,7 @@ import QuestionGroup from "@/components/minhkhoi/QuestionGroup/QuestionGroup";
 
 import { useState } from "react";
 
-export const metadata = {
-  title: "Health test",
-  description: "Health test",
-};
+
 
 const Survey = () => {
   const label = [

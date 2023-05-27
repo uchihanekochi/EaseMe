@@ -9,10 +9,7 @@ import { useState } from "react";
 import { signIn,useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-export const metadata = {
-  title: "Đăng nhập",
-  description: "Login page",
-};
+
 
 
 const Login = () => {
