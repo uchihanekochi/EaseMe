@@ -17,6 +17,11 @@ const Book = ({ pageContentArr = [], nameOfUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
 
+
+  function joinArrContent(array){
+    return array.join(`\n`)
+  }
+
   function goPrevPage() {
     if (currentPage > 1) {
       // console.log(currentPage);
@@ -84,12 +89,11 @@ const Book = ({ pageContentArr = [], nameOfUser }) => {
                 <div className="content__body">
                   <p>
                     <span style={{ fontSize: "5rem" }}>
-                      {pageContentArr[i].content[0][0][0]}
+                        {joinArrContent(pageContentArr[i].content)[0]}
                     </span>
-                    {pageContentArr[i].content[0].substring(
-                      1,
-                      pageContentArr[i].content[0].length
-                    )}
+                    {
+                      joinArrContent(pageContentArr[i].content).substring(1, joinArrContent(pageContentArr[i].content).length)
+                    } 
                   </p>
                 </div>
                 <div className="content__footer">

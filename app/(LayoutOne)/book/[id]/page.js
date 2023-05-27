@@ -17,6 +17,9 @@ const BookPage = ({ params }) => {
       </div>
     )
   }
+
+ 
+ 
   return (
     <div className=" col-span-5 h-full">
 
