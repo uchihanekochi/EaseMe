@@ -1,24 +1,22 @@
-'use client'
+"use client";
 import "./Survey.css";
 import QuestionGroup from "@/components/minhkhoi/QuestionGroup/QuestionGroup";
 
 import { useState } from "react";
 
-
-
 const Survey = () => {
   const label = [
     {
-      text: "Cau co on khong?",
-      answersList: ["Kó", "Không", "Tớ không biết nữa"],
+      text: "Cậu có ổn không?",
+      answersList: ["Có", "Không", "Tớ không biết nữa"],
     },
     {
-      text: "Cau co can giup do ngay khong?",
-      answersList: ["Goi den hotline ho tro", "Khong can dau"],
+      text: "Cậu có cần giúp đỡ ngay không?",
+      answersList: ["Gọi đến hotline hỗ trợ", "Không cần đâu"],
     },
     {
-      text: "Dao nay cau hay thay lo lang chu?",
-      answersList: ["Gan nhu moi ngay", "Doi khi", "Thuong xuyen", "Khong co"],
+      text: "Dạo này cậu hay thấy lo lắng chứ?",
+      answersList: ["Gần như mọi ngày", "Đôi khi", "Thường xuyên", "Không có"],
     },
   ];
   const [score, setScore] = useState(0);
@@ -48,7 +46,17 @@ const Survey = () => {
   return (
     <div className="survey-test__wrapper">
       {survey}
-      {showScore && <div style={{ fontSize: "2.2rem" }}>Score: {score}</div>}
+      {showScore && (
+        <div
+          style={{
+            fontSize: "2.2rem",
+            fontFamily: "Be VietNam Pro",
+            color: "#87a173",
+          }}
+        >
+          Score: {score}
+        </div>
+      )}
     </div>
   );
 };
