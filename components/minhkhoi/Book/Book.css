@@ -119,7 +119,7 @@
   transform: rotateY(180deg);
 }
 
-.book__paper-back .content .content__body {
+.book__paper-back .content .content__body p {
   font-size: 36px;
   padding-top: 45px;
 }
