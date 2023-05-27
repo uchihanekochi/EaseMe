@@ -1,5 +1,5 @@
 Hướng dẫn sử dụng
-#Bước 1: Clone app về
+#Bước 1: Clone app về \n
 #Bước 2: chạy lệnh npm i ở terminal
 #bước 3: tạo một file env, copy paste 4 biến ở dưới vào
 #Bước 4: Chạy lệnh npx prisma db push
